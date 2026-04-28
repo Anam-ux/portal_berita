@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class News_views extends Model
+class NewsViews extends Model
 {
     use HasFactory;
 

@@ -44,6 +44,6 @@ class News extends Model
 
     public function viewsLogs()
     {
-        return $this->hasMany(News_views::class);
+        return $this->hasMany(NewsViews::class);
     }
 }
