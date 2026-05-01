@@ -6395,3 +6395,10 @@ del {
 .switch-wrap {
     margin-bottom: 10px;
 }
+
+.img-square-small {
+    width: 80px;
+    height: 80px;
+    object-fit: cover; /* Memastikan gambar tetap proporsional meski dipotong */
+    border-radius: 4px; /* Opsional: agar sudutnya tidak terlalu tajam */
+}

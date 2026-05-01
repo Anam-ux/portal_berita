@@ -65,7 +65,7 @@
                         <div class="trend-top-cap trend-top-cap2">
                             <span class="bgb">Latset</span>
                             <h2>
-                            <a href="#"
+                            <a href="{{ route('news.show', $news->slug) }}"
                                 >{{ $news->title }}</a
                             >
                             </h2>
@@ -82,42 +82,39 @@
     </div>
   </div>
   <!-- Trending Area End -->
-
   <!--   Weekly3-News start -->
-  <div class="weekly3-news-area pt-80 pb-130">
+ <div class="weekly3-news-area pt-80 pb-130">
     <div class="container">
-      <div class="weekly3-wrapper">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="slider-wrapper">
-              <!-- Slider -->
-              <div class="row">
+        <div class="weekly3-wrapper">
+            <div class="row">
                 <div class="col-lg-12">
-                  <div class="weekly3-news-active dot-style d-flex">
-                    @foreach ($latestNews as $news)
-                    <div class="weekly3-single">
-                      <div class="weekly3-img">
-                        <img src="{{ Storage::url($news->thumbnail) }}" alt="" />
-                      </div>
-                      <div class="weekly3-caption">
-                        <h4>
-                          <a href="latest_news.html"
-                            >{{ $news->title }}</a
-                          >
-                        </h4>
-                        <p>{{ $news->created_at->format('d M Y') }}</p>
-                      </div>
-                    </div>   
-                    @endforeach
-                  </div>
+                    <div class="section-tittle mb-30">
+                        <h3>Berita Terbaru</h3>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
+
+            <div class="row"> 
+                @foreach ($latestNews->take(4) as $news)
+                <div class="col-lg-3 col-md-6 col-sm-6"> <div class="weekly3-single mb-30">
+                        <div class="weekly3-img">
+                            <img src="{{ Storage::url($news->thumbnail) }}" alt="{{ $news->title }}" style="width: 100%; height: 200px; object-fit: cover; border-radius: 5px;">
+                        </div>
+                        <div class="weekly3-caption">
+                            <h4 style="margin-top: 15px;">
+                                <a href="{{ route('news.show', $news->slug) }}" style="font-size: 16px; line-height: 1.4; display: block;">
+                                    {{ $news->title }}
+                                </a>
+                            </h4>
+                            <p>{{ $news->created_at->format('d M Y') }}</p>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
         </div>
-      </div>
     </div>
-  </div>
+</div>
   <!-- End Weekly-News -->
   <!--   Weekly2-News start -->
   <div class="weekly2-news-area pt-50 pb-30 gray-bg">
@@ -210,112 +207,6 @@
     </div>
   </div>
   <!-- End Weekly-News -->
-  <!--  Recent Articles start -->
-  <div class="recent-articles pt-80 pb-80">
-    <div class="container">
-      <div class="recent-wrapper">
-        <!-- section Tittle -->
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="section-tittle mb-30">
-              <h3>Trending News</h3>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-12">
-            <div class="recent-active dot-style d-flex dot-style">
-              <!-- Single -->
-              <div class="single-recent">
-                <div class="what-img">
-                  <img src="{{asset('assets/img/gallery/tranding1.png')}}" alt="" />
-                </div>
-                <div class="what-cap">
-                  <h4>
-                    <a href="#">
-                      <h4>
-                        <a href="latest_news.html"
-                          >What to Expect From the 2020 Oscar Nomin ations</a
-                        >
-                      </h4></a
-                    >
-                  </h4>
-                  <p>Jun 19, 2020</p>
-                  <a
-                    class="popup-video btn-icon"
-                    href="https://www.youtube.com/watch?v=1aP-TXUpNoU"
-                    ><span class="flaticon-play-button"></span
-                  ></a>
-                </div>
-              </div>
-              <!-- Single -->
-              <div class="single-recent">
-                <div class="what-img">
-                  <img src="{{asset('assets/img/gallery/tranding2.png')}}" alt="" />
-                </div>
-                <div class="what-cap">
-                  <h4>
-                    <a href="latest_news.html"
-                      >What to Expect From the 2020 Oscar Nomin ations</a
-                    >
-                  </h4>
-                  <p>Jun 19, 2020</p>
-                  <a
-                    class="popup-video"
-                    href="https://www.youtube.com/watch?v=1aP-TXUpNoU"
-                    ><span class="flaticon-play-button"></span
-                  ></a>
-                </div>
-              </div>
-              <!-- Single -->
-              <div class="single-recent">
-                <div class="what-img">
-                  <img src="{{asset('assets/img/gallery/tranding1.png')}}" alt="" />
-                </div>
-                <div class="what-cap">
-                  <h4>
-                    <a href="latest_news.html">
-                      <h4>
-                        <a href="latest_news.html"
-                          >What to Expect From the 2020 Oscar Nomin ations</a
-                        >
-                      </h4></a
-                    >
-                  </h4>
-                  <p>Jun 19, 2020</p>
-                  <a
-                    class="popup-video"
-                    href="https://www.youtube.com/watch?v=1aP-TXUpNoU"
-                    ><span class="flaticon-play-button"></span
-                  ></a>
-                </div>
-              </div>
-              <!-- Single -->
-              <div class="single-recent">
-                <div class="what-img">
-                  <img src="{{asset('assets/img/gallery/tranding2.png')}}" alt="" />
-                </div>
-                <div class="what-cap">
-                  <h4>
-                    <a href="latest_news.html"
-                      >What to Expect From the 2020 Oscar Nomin ations</a
-                    >
-                  </h4>
-                  <p>Jun 19, 2020</p>
-                  <a
-                    class="popup-video"
-                    href="https://www.youtube.com/watch?v=1aP-TXUpNoU"
-                    ><span class="flaticon-play-button"></span
-                  ></a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!--Recent Articles End -->
   <!-- banner-last Start -->
   <div class="banner-area gray-bg pt-90 pb-90">
     <div class="container">

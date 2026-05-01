@@ -14,10 +14,6 @@ class HomeController extends Controller
             ->first();
         // berita terbaru
         $latestNews = News::latest()
-            ->when($featured, function ($query) use ($featured) {
-                return $query->where('id', '!=', $featured->id);
-            })
-            ->take(6)
             ->get();
 
         return view('pages.home', compact('featured', 'latestNews'));
