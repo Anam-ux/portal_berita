@@ -8,14 +8,14 @@
             <!-- Logo -->
             <div class="col-xl-3 col-lg-3 col-md-3 d-none d-md-block">
               <div class="logo">
-                <a href="index.html"
-                  ><img src="assets/img/logo/logo.png" alt=""
+                <a href="{{route('home')}}"
+                  ><img src="{{ asset('assets/img/logo/logo.png') }}" alt=""
                 /></a>
               </div>
             </div>
             <div class="col-xl-9 col-lg-9 col-md-9">
               <div class="header-banner f-right">
-                <img src="assets/img/gallery/header_card.png" alt="" />
+                <img src="{{ asset('assets/img/gallery/header_card.png') }}" alt="" />
               </div>
             </div>
           </div>
@@ -27,15 +27,15 @@
             <div class="col-xl-8 col-lg-8 col-md-12 header-flex">
               <!-- sticky -->
               <div class="sticky-logo">
-                <a href="index.html"
-                  ><img src="assets/img/logo/logo.png" alt=""
+                <a href="{{route('home')}}"
+                  ><img src="{{ asset('assets/img/logo/logo.png') }}" alt=""
                 /></a>
               </div>
               <!-- Main-menu -->
               <div class="main-menu d-none d-md-block">
                 <nav>
                   <ul id="navigation">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="{{ route('home') }}">Home</a></li>
                     @foreach ($categories as $category)
                       <li><a href="{{ route('category.show', $category->slug) }}">{{ $category->name }}</a></li>
                     @endforeach
@@ -85,7 +85,7 @@
     <div class="preloader-inner position-relative">
       <div class="preloader-circle"></div>
       <div class="preloader-img pere-text">
-        <img src="{{asset('assets/img/logo/logo.png')}}" alt="" />
+        <img src="{{ asset('assets/img/logo/logo.png') }}" alt="" />
       </div>
     </div>
   </div>

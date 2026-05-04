@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class NewsViews extends Model
+class NewsView extends Model
 {
     use HasFactory;
 
@@ -17,7 +17,7 @@ class NewsViews extends Model
     ];
 
     protected $casts = [
-        'viewed_at' => 'datatime'
+        'viewed_at' => 'datetime'
     ];
 
     public $timestamps = false;

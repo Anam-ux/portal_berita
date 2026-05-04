@@ -133,7 +133,7 @@
               <div class="row">
                 <div class="col-lg-12">
                   <div class="small-tittle mb-30">
-                    <h4>Most Popular</h4>
+                    <h4>Berita Populer</h4>
                   </div>
                 </div>
               </div>
@@ -142,61 +142,23 @@
                 <div class="col-lg-12">
                   <div class="weekly2-news-active d-flex">
                     <!-- Single -->
+                    @forelse ($popularNews as $news)
                     <div class="weekly2-single">
                       <div class="weekly2-img">
-                        <img src="{{asset('assets/img/gallery/weeklyNews1.png')}}" alt="" />
+                        <img src="{{ Storage::url($news->thumbnail) }}" alt="{{ $news->title }}" />
                       </div>
                       <div class="weekly2-caption">
                         <h4>
-                          <a href="#"
-                            >Scarlett’s disappointment at latest accolade</a
-                          >
+                          <a href="{{ route('news.show', $news->slug) }}">
+                            {{ $news->title }}
+                          </a>
                         </h4>
-                        <p>Jhon | 2 hours ago</p>
+                        <p>{{ $news->created_at->format('d M Y') }}</p>
                       </div>
-                    </div>
-                    <!-- Single -->
-                    <div class="weekly2-single">
-                      <div class="weekly2-img">
-                        <img src="{{asset('assets/img/gallery/weeklyNews2.png')}}" alt="" />
-                      </div>
-                      <div class="weekly2-caption">
-                        <h4>
-                          <a href="#"
-                            >Scarlett’s disappointment at latest accolade</a
-                          >
-                        </h4>
-                        <p>Jhon | 2 hours ago</p>
-                      </div>
-                    </div>
-                    <!-- Single -->
-                    <div class="weekly2-single">
-                      <div class="weekly2-img">
-                        <img src="{{asset('assets/img/gallery/weeklyNews3.png')}}" alt="" />
-                      </div>
-                      <div class="weekly2-caption">
-                        <h4>
-                          <a href="#"
-                            >Scarlett’s disappointment at latest accolade</a
-                          >
-                        </h4>
-                        <p>Jhon | 2 hours ago</p>
-                      </div>
-                    </div>
-                    <!-- Single -->
-                    <div class="weekly2-single">
-                      <div class="weekly2-img">
-                        <img src="{{asset('assets/img/gallery/weeklyNews2.png')}}" alt="" />
-                      </div>
-                      <div class="weekly2-caption">
-                        <h4>
-                          <a href="#"
-                            >Scarlett’s disappointment at latest accolade</a
-                          >
-                        </h4>
-                        <p>Jhon | 2 hours ago</p>
-                      </div>
-                    </div>
+                    </div> 
+                    @empty
+                        <p>Belum ada data berita populer.</p>
+                    @endforelse
                   </div>
                 </div>
               </div>

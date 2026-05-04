@@ -42,8 +42,8 @@ class News extends Model
         return $this->belongsToMany(Tag::class, "news_tags");
     }
 
-    public function viewsLogs()
+    public function views()
     {
-        return $this->hasMany(NewsViews::class);
+        return $this->hasMany(NewsView::class);
     }
 }
